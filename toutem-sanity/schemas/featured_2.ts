@@ -10,11 +10,11 @@ export default {
       options: {
         hotspot: true,
       },
-    },   
+    },
     {
       name: 'text',
       title: 'Text',
-      type: 'string',
+      type: 'text',
     },
     {
       name: 'buttonText',

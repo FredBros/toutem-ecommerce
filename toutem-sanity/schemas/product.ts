@@ -19,7 +19,7 @@ export default {
     {
       name: 'summary',
       title: 'Summary',
-      type: 'string',
+      type: 'text',
     },
     {
       name: 'slug',
@@ -38,7 +38,22 @@ export default {
     {
       name: 'details',
       title: 'Details',
-      type: 'string',
+      type: 'text',
+    },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'array',
+      of: [{type: 'string'}],
+      options: {
+        list: [
+          {title: 'Oil', value: 'oil'},
+          {title: 'Cosmetic', value: 'cosmetic'},
+          {title: 'Diffuser', value: 'diffuser'},
+          {title: 'Soap', value: 'soap'},
+          {title: 'Pack', value: 'pack'},
+        ],
+      },
     },
   ],
 }
