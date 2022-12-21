@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import { Text } from "@nextui-org/react";
 
 export default function Home() {
   return (
@@ -11,7 +12,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Hello World !!</h1>
+        <Text h1 >Hello World !!</Text>
+        <p>Hello ici aussi !!</p>
       </main>
     </>
   );
