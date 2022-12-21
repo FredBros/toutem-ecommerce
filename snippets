@@ -1,0 +1,70 @@
+//themes
+
+import { createTheme } from "@nextui-org/react";
+
+export const theme = createTheme({
+  type: "light",
+  className: "default-theme",
+  theme: {
+    fonts: {
+      sans: "'M PLUS Rounded 1c','SFPro-Display','Roboto','Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;",
+      mono: "Menlo, Monaco, 'Lucida Console', 'Liberation Mono','DejaVu Sans Mono', 'Bitstream Vera Sans Mono'",
+      sfprodisplay: "SFPro-Display",
+    },
+  },
+});
+
+export const lightTheme = createTheme({
+  type: "light",
+  theme: {
+    fonts: {
+      sans: "'M PLUS Rounded 1c','SFPro-Display','Roboto','Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;",
+      mono: "Menlo, Monaco, 'Lucida Console', 'Liberation Mono','DejaVu Sans Mono', 'Bitstream Vera Sans Mono'",
+      local: '"SF Pro Rounded", $sans',
+      sfprodisplay: "SFPro-Display",
+      sfprorounded: "SFPro-Rounded",
+    },
+    colors: {
+      // background colors (light)
+      background: "$white",
+      backgroundAlpha: "rgba(255, 255, 255, 0.8)", // used for semi-transparent backgrounds like the navbar
+      foreground: "#1F2937",
+      foregroundLight: "#9CA3AF",
+      foregroundGreen: "$primary",
+      backgroundContrast: "#F3F4F6",
+      // brand colors
+      primaryLight: "#BDF6D0",
+      primaryLightHover: "#89E8A9", // commonly used on hover state
+      primaryLightActive: "#3EC46B", // commonly used on pressed state
+      primaryLightContrast: "$white", // commonly used for text inside the component
+      primary: "#5FD788",
+      primaryBorder: "#5FD788",
+      primaryBorderHover: "#20B151",
+      primarySolidHover: "#20B151",
+      primarySolidContrast: "$white", // commonly used for text inside the component
+      primaryShadow: "#3EC46B",
+    },
+  },
+});
+export const darkTheme = createTheme({
+  type: "dark",
+  theme: {
+    fonts: {
+      sans: "'M PLUS Rounded 1c','SFPro-Display','Roboto','Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;",
+      mono: "Menlo, Monaco, 'Lucida Console', 'Liberation Mono','DejaVu Sans Mono', 'Bitstream Vera Sans Mono'",
+      local: '"SF Pro Rounded", $sans',
+      sfprodisplay: "SFPro-Display",
+      mplusrounded: "'M PLUS Rounded 1c'",
+    },
+    colors: {
+      // background colors (dark)
+      background: "#1F2937",
+      backgroundAlpha: "rgba(255, 255, 255, 0.8)", // used for semi-transparent backgrounds like the navbar
+      foreground: "$white",
+      foregroundLight: "#9CA3AF",
+      foregroundGreen: "$primary",
+      backgroundContrast: "#374151",
+    },
+  },
+});
+
