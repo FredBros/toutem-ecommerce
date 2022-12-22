@@ -1,10 +1,21 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
 import { Text } from "@nextui-org/react";
-import { HomePage} from "../src/components"
+import { HomePage } from "../src/components";
+import { client } from "../src/lib/client";
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 
+type Props = {
+  bannerData: [
+    banner: {
+      title: string;
+      text: string;
+      image: {};
+    }
+  ];
+};
 
-export default function Home() {
+export default function Home({ bannerData }: Props) {
   return (
     <>
       <Head>
@@ -14,10 +25,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Text h1>Hello World !!</Text>
-        <p>Hello ici aussi !!</p>
-        <HomePage/>
+        <HomePage banner={bannerData[0]} />
       </main>
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  // const query = '*[_type == "product"]';
+  // const products = await client.fetch(query);
+  const bannerQuery = '*[_type == "banner"]';
+  const bannerData: [] = await client.fetch(bannerQuery);
+  return {
+    props: { bannerData }, // will be passed to the page component as props
+  };
+};

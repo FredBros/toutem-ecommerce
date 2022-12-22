@@ -11,3 +11,7 @@ export { default as ToggleTheme } from "./ui/ToggleTheme";
 export { default as BrandLogo } from "./ui/BrandLogo";
 
 export { default as HomePage } from "./view/HomePage";
+
+
+export { default as Banner } from "./HomePage/Banner";
+export { default as EllipseBanner } from "./HomePage/EllipseBanner";

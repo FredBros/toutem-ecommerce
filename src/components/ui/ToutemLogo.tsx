@@ -4,7 +4,7 @@ import Logo from "../../../public/images/Brand.svg";
 
 const ToutemLogo = () => {
   return (
-    <><Logo/></>
+    <Logo/>
   )
 }
 

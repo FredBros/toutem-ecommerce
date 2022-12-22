@@ -1,11 +1,28 @@
 import React from 'react'
-import {Button} from "@nextui-org/react";
+import {Banner} from "../" 
 
 
-const HomePage = () => {
+type Props = {
+  banner: {
+    title: string;
+    text: string;
+    image: {};
+  };
+};
+
+const HomePage = ({ banner }: Props) => {
+
   return (
-    <Button>Click me</Button>
-  )
-}
+    <section>
+      <Banner banner={banner} />
+      
+      <style jsx>{`
+              section{
+      padding: 3vw;
+      }
+            `}</style>
+    </section>
+  );
+};
 
 export default HomePage
