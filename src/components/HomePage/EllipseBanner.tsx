@@ -6,12 +6,9 @@ type Props ={
 }
 
 const EllipseBanner = () => {
-// const EllipseBanner = ({width, height} : Props) => {
   return (
     <svg
       style={{ width: "inherit", height: "inherit" }}
-      // width={width}
-      // height={height}
       viewBox="0 0 219 180"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

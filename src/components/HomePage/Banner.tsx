@@ -1,17 +1,19 @@
-import React from "react";
-import Image from "next/image";
+import React, {useContext, useEffect, useState} from "react";
 import {EllipseBanner} from "../";
 import { urlFor } from "../../lib/client";
+import { DataContext } from "../../context/DataContext";
 
-type Props = {
-  banner: {
-    title: string
-    text: string
-    image: {}
-  };
-};
-const Banner = ({ banner }: Props) => {
-    // console.log(banner)
+
+
+const Banner = () => {
+  const [isLoaded, setIsLoaded] = useState(false)
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
+  const {banner} =  useContext(DataContext)
+
+  if (!isLoaded) return null
+
   return (
     <div className="banner-wrap">
       <div className="banner-image">
@@ -28,9 +30,7 @@ const Banner = ({ banner }: Props) => {
         <p className="title">{banner.title}</p>
         <p className="text">{banner.text}</p>
       </div>
-      <style jsx>{`
-        .banner-wrap {
-        }
+      <style jsx>{`        
         .ellipse {
           width: 80%;
           position: absolute;

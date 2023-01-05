@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Grid, Text } from "@nextui-org/react";
 import { BrandLogo, FooterItem } from "../";
-import useMediaQuery from "../../utils/hooks/useMediaQuery";
+import {useMediaQuery} from "../../utils/";
 
 const Footer = () => {
   const isMd = useMediaQuery(960);

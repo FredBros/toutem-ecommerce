@@ -14,6 +14,7 @@ export const lightTheme = createTheme({
       foregroundLight: "#9CA3AF",
       foregroundGreen: "$primary",
       backgroundContrast: "#F3F4F6",
+      categorieNavCardIsActive: "#1F2937",
       // brand colors
       primaryLight: "#BDF6D0",
       primaryLightHover: "#89E8A9", // commonly used on hover state
@@ -40,6 +41,7 @@ export const darkTheme = createTheme({
       foregroundLight: "#9CA3AF",
       foregroundGreen: "$primary",
       backgroundContrast: "#374151",
+      categorieNavCardIsActive: "#1F2937",
       // brand colors
       primaryLight: "#BDF6D0",
       primaryLightHover: "#89E8A9", // commonly used on hover state

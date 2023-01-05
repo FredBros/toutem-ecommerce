@@ -1,27 +1,23 @@
 import React from 'react'
-import {Banner} from "../" 
+import {Banner, CategoriesSection} from "../" 
 
 
-type Props = {
-  banner: {
-    title: string;
-    text: string;
-    image: {};
-  };
-};
-
-const HomePage = ({ banner }: Props) => {
-
+const HomePage = () => {
   return (
-    <section>
-      <Banner banner={banner} />
-      
-      <style jsx>{`
-              section{
-      padding: 3vw;
-      }
-            `}</style>
-    </section>
+    <>
+      <section>
+        <Banner/>
+
+        <style jsx>{`
+          section {
+            padding: 3vw;
+          }
+        `}</style>
+      </section>
+      <section>
+        <CategoriesSection/>
+      </section>
+    </>
   );
 };
 

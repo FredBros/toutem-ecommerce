@@ -3,19 +3,30 @@ import styles from "../styles/Home.module.css";
 import { Text } from "@nextui-org/react";
 import { HomePage } from "../src/components";
 import { client } from "../src/lib/client";
+import { useState, useContext, useEffect } from "react";
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
+import { DataContext} from "../src/context/DataContext";
+import {
+  DataContextType,
+  Banner,
+  CategoriesSectionData,
+} from "../src/@types/data";
+
+
+ 
 
 type Props = {
-  bannerData: [
-    banner: {
-      title: string;
-      text: string;
-      image: {};
-    }
-  ];
+  bannerData: Banner[];
+  categoriesSectionData: CategoriesSectionData;
 };
 
-export default function Home({ bannerData }: Props) {
+export default function Home({ bannerData, categoriesSectionData }: Props) {
+  const { addBannerData, addCategoriesSectionData } = useContext(DataContext);
+
+  useEffect(() => {
+    addBannerData(bannerData[0]);
+    addCategoriesSectionData(categoriesSectionData);
+    }, [])
   return (
     <>
       <Head>
@@ -25,7 +36,7 @@ export default function Home({ bannerData }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <HomePage banner={bannerData[0]} />
+        <HomePage />
       </main>
     </>
   );
@@ -34,9 +45,11 @@ export default function Home({ bannerData }: Props) {
 export const getServerSideProps: GetServerSideProps = async () => {
   // const query = '*[_type == "product"]';
   // const products = await client.fetch(query);
+  const categoriesQuery = '*[_type == "categoriesSection"]';
+  const categoriesSectionData: [] = await client.fetch(categoriesQuery);
   const bannerQuery = '*[_type == "banner"]';
   const bannerData: [] = await client.fetch(bannerQuery);
   return {
-    props: { bannerData }, // will be passed to the page component as props
+    props: { bannerData, categoriesSectionData }, // will be passed to the page component as props
   };
 };
