@@ -14,7 +14,6 @@ const slicedText= (text: any) =>{
 }
 
 const ProductCard = ({product}:Props) => {
-    console.log(product)
   return (
     <Card
       isPressable

@@ -3,6 +3,7 @@ import { CategorieNavCard, CategoryDetails } from "../";
 import { DataContext } from "../../context/DataContext";
 import { v4 as uuidv4 } from "uuid";
 import MediaQuery from "react-responsive";
+// import Accordion from "../test/Accordion"
 
 // type Props = {
 //   activeCategory: string;
@@ -14,27 +15,36 @@ import MediaQuery from "react-responsive";
 const NavCategories = () => {
   const { categoriesSectionData } = useContext(DataContext);
     const [activeCategory, setActiveCategory] = useState("cosmetic");
+const handleToggle = (category: string) => {
+  if (activeCategory === category) return setActiveCategory("");
+  setActiveCategory(category);
+};
+// return (
+//   <div className="container">
+//     <Accordion />
+//   </div>
+// );
+
 
 
   return (
     <>
       <div className="nav-categories-wrap">
         <div className="nav-categories">
-          {categoriesSectionData.map((category) => {
+          {categoriesSectionData.map((categoryData) => {
             return (
               <div className="category-section" key={uuidv4()}>
                 <CategorieNavCard
                   key={uuidv4()}
-                  data={category}
-                  isActive={activeCategory == category.category}
+                  data={categoryData}
+                  isActive={activeCategory == categoryData.category}
                   activeCategory={activeCategory}
-                  setActiveCategory={setActiveCategory}
+                  onToggle={() => handleToggle(categoryData.category)}
                 />
                 <MediaQuery maxWidth={960}>
                   <CategoryDetails
-                    data={category}
-                    activeCategory={activeCategory}
-                    isActive={activeCategory == category.category}
+                    data={categoryData}
+                    isActive={activeCategory == categoryData.category}
                   />
                 </MediaQuery>
               </div>
@@ -43,13 +53,12 @@ const NavCategories = () => {
         </div>
         <MediaQuery minWidth={961}>
           <div className="category-details-large">
-            {categoriesSectionData.map((category) => {
+            {categoriesSectionData.map((categoryData) => {
               return (
                 <div key={uuidv4()}>
                   <CategoryDetails
-                    data={category}
-                    activeCategory={activeCategory}
-                    isActive={activeCategory == category.category}
+                    data={categoryData}
+                    isActive={activeCategory == categoryData.category}
                   />
                 </div>
               );

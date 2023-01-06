@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
 import { BlobCategoryDetail } from "../";
 import { urlFor } from "../../lib/client";
 import { Button } from "@nextui-org/react";
+import { gsap } from "gsap";
+
 
 type Props = {
   data: {
@@ -10,16 +12,40 @@ type Props = {
     subTitle: string;
     text: string;
   };
-  activeCategory: string;
   isActive: boolean;
 };
 
 const CategoryDetails = ({ data, isActive }: Props) => {
-  //  let isActive = activeCategory == data.category ? true : false;
-  // let maxHeight = isActive ? "100vh" : 0;
+      const tl:any = useRef();
+      const ref:any = useRef();
+
+      useEffect(() => {
+        const ctx = gsap.context(() => {
+          tl.current = gsap.timeline({
+            paused: true,
+          });
+          tl.current.to(ref.current, {
+            height: "auto",
+            duration: 0.5,
+            ease: "power2.inOut",
+          });
+          
+          
+        }, ref);
+
+        return () => {
+          ctx.revert();
+        };
+      }, []);
+
+      useEffect(() => {
+        isActive ? tl.current.play() : tl.current.reverse();
+      }, [isActive]);
+
+  
   return (
     <>
-      <div className="category-detail-wrap">
+      <div className="category-detail-wrap" ref={ref}>
         <div className="images-wrap">
           <div className="blob-wrap">
             <BlobCategoryDetail />
@@ -45,8 +71,8 @@ const CategoryDetails = ({ data, isActive }: Props) => {
             padding-top: ${isActive ? "15px" : 0};
             overflow: hidden;
             width: 100%;
-            max-height: ${isActive ? "100vh" : 0};
             transition: max-height 5s linear;
+            height:0;
           }
           .images-wrap {
             position: relative;
