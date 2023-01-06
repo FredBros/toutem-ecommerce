@@ -10,6 +10,7 @@ export { default as CartIcon } from "./ui/CartIcon";
 export { default as ToggleTheme } from "./ui/ToggleTheme";
 export { default as BrandLogo } from "./ui/BrandLogo";
 export { default as CategoryLogo } from "./ui/CategoryLogo";
+export { default as ProductCard } from "./ui/ProductCard";
 
 
 export { default as HomePage } from "./view/HomePage";
@@ -21,6 +22,8 @@ export { default as NavCategories } from "./HomePage/NavCategories";
 export { default as CategoriesSection } from "./HomePage/CategoriesSection";
 export { default as CategorieNavCard } from "./HomePage/CategorieNavCard";
 export { default as CategoryDetails } from "./HomePage/CategoryDetails";
+export { default as BestSellersSection } from "./HomePage/BestSellersSection";
+export { default as BestSellersCards } from "./HomePage/BestSellersCards";
 
 
 export { default as Pack } from "./svg/Pack";
@@ -30,3 +33,5 @@ export { default as Diffuser } from "./svg/Diffuser";
 export { default as Oil } from "./svg/Oil";
 export { default as Soap } from "./svg/Soap";
 export { default as BlobCategoryDetail } from "./svg/BlobCategoryDetail";
+export { default as LemonFlower } from "./svg/LemonFlower";
+export { default as CartShop } from "./svg/CartShop";

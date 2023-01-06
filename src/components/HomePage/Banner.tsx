@@ -23,7 +23,7 @@ const Banner = () => {
         <img
           // @ts-ignore
           src={urlFor(banner.image)}
-          alt=""
+          alt="banner"
         />
       </div>
       <div className="banner-text">

@@ -2,10 +2,7 @@ export default {
   name: 'product',
   title: 'Product',
   type: 'document',
-  initialValue: {
-    featured: false,
-    soldCount: 0,
-  },
+
   fields: [
     {
       name: 'image',
@@ -63,11 +60,13 @@ export default {
       name: 'isFeatured',
       title: 'Featured',
       type: 'boolean',
+      initialValue: false,
     },
     {
       name: 'soldCount',
       title: 'Sold Count',
       type: 'number',
+      initialValue: 0,
       readOnly: true,
     },
   ],

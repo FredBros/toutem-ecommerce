@@ -4,13 +4,9 @@ import {NavCategories} from "../"
 
 
 const CategoriesSection = () => {
-  const [activeCategory, setActiveCategory] = useState("cosmetic");
   return (
     <div>
-      <NavCategories
-        activeCategory ={activeCategory}
-        setActiveCategory={setActiveCategory}
-      />
+      <NavCategories/>
     </div>
   );
 };

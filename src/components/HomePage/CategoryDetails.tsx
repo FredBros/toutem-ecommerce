@@ -1,22 +1,22 @@
-import React from 'react'
-import {BlobCategoryDetail} from "../"
+import React from "react";
+import { BlobCategoryDetail } from "../";
 import { urlFor } from "../../lib/client";
 import { Button } from "@nextui-org/react";
 
 type Props = {
   data: {
     category: string;
-    image: {}
-    subTitle: string
-    text: string
+    image: {};
+    subTitle: string;
+    text: string;
   };
   activeCategory: string;
-  setActiveCategory: (value: string) => void;
+  isActive: boolean;
 };
 
-const CategoryDetails = ({ data, activeCategory, setActiveCategory }:Props) => {
-     let isActive = activeCategory == data.category ? true : false;
-     let maxHeight = isActive ? "100vh" : 0
+const CategoryDetails = ({ data, isActive }: Props) => {
+  //  let isActive = activeCategory == data.category ? true : false;
+  // let maxHeight = isActive ? "100vh" : 0;
   return (
     <>
       <div className="category-detail-wrap">
@@ -40,12 +40,13 @@ const CategoryDetails = ({ data, activeCategory, setActiveCategory }:Props) => {
 
         <style jsx>{`
           .category-detail-wrap {
+            display: flex;
+            flex-direction: column;
+            padding-top: ${isActive ? "15px" : 0};
             overflow: hidden;
             width: 100%;
-            position: relative;
-            margin-top: 15px;
-            max-height: ${maxHeight};
-            transition: all 1s  linear;
+            max-height: ${isActive ? "100vh" : 0};
+            transition: max-height 5s linear;
           }
           .images-wrap {
             position: relative;
@@ -55,8 +56,7 @@ const CategoryDetails = ({ data, activeCategory, setActiveCategory }:Props) => {
           }
 
           .blob-wrap {
-            position: absolute;
-            width: 155x;
+            width: 155px;
             height: 100%;
             display: flex;
             align-items: center;
@@ -64,6 +64,7 @@ const CategoryDetails = ({ data, activeCategory, setActiveCategory }:Props) => {
           }
 
           img {
+            position: absolute;
             z-index: 1;
             height: 155px;
           }
@@ -86,10 +87,40 @@ const CategoryDetails = ({ data, activeCategory, setActiveCategory }:Props) => {
             font-weight: 600;
             font-size: 0.75rem;
           }
+          @media screen and (min-width: 450px) {
+            .category-detail-wrap {
+              flex-direction: row;
+              justify-content: space-between;
+              width: 100%;
+              gap: 5px;
+            }
+            .text-wrap {
+              align-items: flex-end;
+              text-align: end;
+              padding: 0 20px;
+            }
+            .subtitle {
+              font-size: clamp(1.25rem, 0.1471rem + 3.9216vw, 2.5rem);
+            }
+            .blob-wrap {
+              position: relative;
+              width: 40vw;
+              left: -20%;
+            }
+            img {
+              height: auto;
+              
+            }
+          }
+          @media screen and (min-width: 961px) {
+            .subtitle {
+              font-size: 3.12rem;
+            }
+          }
         `}</style>
       </div>
     </>
   );
 };
 
-export default CategoryDetails
+export default CategoryDetails;

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card, Text } from "@nextui-org/react";
 import { CategoryLogo, Blob, Pack, Cosmetic, Diffuser, Oil, Soap } from "../";
-import {useMediaQuery} from "../../utils/"; 
 
 
 type Props = {
@@ -11,14 +10,15 @@ type Props = {
   };
   activeCategory: string;
   setActiveCategory: (value: string) => void;
+  isActive: boolean
 };
 
 const CategorieNavCard = ({
   data,
-  activeCategory,
   setActiveCategory,
+  isActive
 }: Props) => {  
-    let isActive = activeCategory == data.category ? true : false
+    // let isActive = activeCategory == data.category ? true : false
 
   return (
     <div className="card-wrap">

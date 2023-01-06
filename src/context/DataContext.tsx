@@ -4,6 +4,7 @@ import {
   CategoriesSection,
   DataContextType,
   CategoriesSectionData,
+  Products,
 } from "../@types/data";
 
 interface Props {
@@ -15,16 +16,20 @@ export const DataContext = createContext<DataContextType>({
   categoriesSectionData: [],
   addBannerData: () => null,
   addCategoriesSectionData: () => null,
+  bestSellersData : [],
+  addBestSellersData: () => null,
 });
 
 export const DataProvider  = ({children}: Props) => {
   const [banner, setBanner] = useState< Banner>({})
   const [categoriesSectionData, setCategoriesSectionData] =
     useState<CategoriesSectionData>([]);
+    const [bestSellersData, setBestSellersData] = useState<Products>([]);
 
 const addBannerData = (data: Banner) => setBanner(data)
 const addCategoriesSectionData = (data: CategoriesSectionData) =>
   setCategoriesSectionData(data)
+  const addBestSellersData = (data: Products) => setBestSellersData(data)
 
     
 
@@ -35,6 +40,8 @@ const addCategoriesSectionData = (data: CategoriesSectionData) =>
           addBannerData,
           categoriesSectionData,
           addCategoriesSectionData,
+          bestSellersData,
+          addBestSellersData,
         }}
       >
         {children}

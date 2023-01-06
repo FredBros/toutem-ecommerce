@@ -10,6 +10,8 @@ import {
   DataContextType,
   Banner,
   CategoriesSectionData,
+  Product,
+  Products
 } from "../src/@types/data";
 
 
@@ -18,15 +20,18 @@ import {
 type Props = {
   bannerData: Banner[];
   categoriesSectionData: CategoriesSectionData;
+  bestSellersData: Products;
 };
 
-export default function Home({ bannerData, categoriesSectionData }: Props) {
-  const { addBannerData, addCategoriesSectionData } = useContext(DataContext);
+export default function Home({ bannerData, categoriesSectionData, bestSellersData }: Props) {
+  const { addBannerData, addCategoriesSectionData, addBestSellersData } =
+    useContext(DataContext);
 
   useEffect(() => {
     addBannerData(bannerData[0]);
     addCategoriesSectionData(categoriesSectionData);
-    }, [])
+    addBestSellersData(bestSellersData);
+  }, []);
   return (
     <>
       <Head>
@@ -49,7 +54,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const categoriesSectionData: [] = await client.fetch(categoriesQuery);
   const bannerQuery = '*[_type == "banner"]';
   const bannerData: [] = await client.fetch(bannerQuery);
+  const bestSellersQuery = '*[_type == "product" ] | order(soldCount desc)[0...2]';
+  const bestSellersData: [] = await client.fetch(bestSellersQuery);
   return {
-    props: { bannerData, categoriesSectionData }, // will be passed to the page component as props
+    props: { bannerData, categoriesSectionData, bestSellersData }, // will be passed to the page component as props
   };
 };
