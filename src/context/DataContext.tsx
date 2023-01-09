@@ -13,8 +13,8 @@ interface Props {
 
 export const DataContext = createContext<DataContextType>({
   banner: {},
-  categoriesSectionData: [],
   addBannerData: () => null,
+  categoriesSectionData: [],
   addCategoriesSectionData: () => null,
   bestSellersData : [],
   addBestSellersData: () => null,

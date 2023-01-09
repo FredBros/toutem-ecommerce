@@ -1,6 +1,6 @@
 export default {
-  name: 'featured_1',
-  title: 'Featured_1',
+  name: 'featured',
+  title: 'Featured',
   type: 'document',
   fields: [
     {
@@ -10,11 +10,6 @@ export default {
       options: {
         hotspot: true,
       },
-    },
-    {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
     },
     {
       name: 'text',

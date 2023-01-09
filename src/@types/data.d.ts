@@ -24,6 +24,13 @@ export interface CategoriesSection {
   category: string;
 }
 
+export interface FeaturedData {
+  buttonLink: string;
+  buttonText: string;
+  image: {};
+  text: string;
+}
+
 export type CategoriesSectionData = CategoriesSection[];
 
 export type DataContextType = {

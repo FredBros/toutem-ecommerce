@@ -11,7 +11,8 @@ import {
   Banner,
   CategoriesSectionData,
   Product,
-  Products
+  Products,
+  FeaturedData,
 } from "../src/@types/data";
 
 
@@ -21,9 +22,15 @@ type Props = {
   bannerData: Banner[];
   categoriesSectionData: CategoriesSectionData;
   bestSellersData: Products;
+  featuredData: FeaturedData;
 };
 
-export default function Home({ bannerData, categoriesSectionData, bestSellersData }: Props) {
+export default function Home({
+  bannerData,
+  categoriesSectionData,
+  bestSellersData,
+  featuredData,
+}: Props) {
   const { addBannerData, addCategoriesSectionData, addBestSellersData } =
     useContext(DataContext);
 
@@ -56,7 +63,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const bannerData: [] = await client.fetch(bannerQuery);
   const bestSellersQuery = '*[_type == "product" ] | order(soldCount desc)[0...2]';
   const bestSellersData: [] = await client.fetch(bestSellersQuery);
+  const featuredQuery = '*[_type == "featured" ] | order(_updatedAt desc)[0]'
+  const featuredData: {} = await client.fetch(featuredQuery);
   return {
-    props: { bannerData, categoriesSectionData, bestSellersData }, // will be passed to the page component as props
+    props: { bannerData, categoriesSectionData, bestSellersData, featuredData }, // will be passed to the page component as props
   };
 };

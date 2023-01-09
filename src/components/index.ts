@@ -24,6 +24,7 @@ export { default as CategorieNavCard } from "./HomePage/CategorieNavCard";
 export { default as CategoryDetails } from "./HomePage/CategoryDetails";
 export { default as BestSellersSection } from "./HomePage/BestSellersSection";
 export { default as BestSellersCards } from "./HomePage/BestSellersCards";
+export { default as FeaturedSection } from "./HomePage/FeaturedSection";
 
 
 export { default as Pack } from "./svg/Pack";

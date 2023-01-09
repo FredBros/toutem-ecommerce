@@ -1,9 +1,8 @@
 import banner from "./banner"
 import blogPost from "./blogPost"
-import featured_1 from "./featured_1"
-import featured_2 from "./featured_2"
+import featured from "./featured"
 import product from "./product"
 import categoriesSection from "./categoriesSection"
 
 
-export const schemaTypes = [banner, blogPost, featured_1, featured_2, product, categoriesSection]
+export const schemaTypes = [banner, blogPost, featured, product, categoriesSection]

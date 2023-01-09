@@ -1,5 +1,10 @@
 import React from 'react'
-import { Banner, CategoriesSection, BestSellersSection } from "../"; 
+import {
+  Banner,
+  CategoriesSection,
+  BestSellersSection,
+  FeaturedSection,
+} from "../"; 
 
 
 const HomePage = () => {
@@ -19,6 +24,9 @@ const HomePage = () => {
       </section>
       <section>
 <BestSellersSection/>
+      </section>
+      <section>
+<FeaturedSection/>
       </section>
     </>
   );

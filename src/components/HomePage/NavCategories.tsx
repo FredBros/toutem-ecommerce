@@ -1,19 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { CategorieNavCard, CategoryDetails } from "../";
 import { DataContext } from "../../context/DataContext";
 import { v4 as uuidv4 } from "uuid";
 import MediaQuery from "react-responsive";
 
-// type Props = {
-//   activeCategory: string;
-//   setActiveCategory: (value: string) => void;
-// };
+
 
 
 
 const NavCategories = () => {
   const { categoriesSectionData } = useContext(DataContext);
     const [activeCategory, setActiveCategory] = useState("cosmetic");
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
+
+  if(!isLoaded) return null
 
 
   return (
