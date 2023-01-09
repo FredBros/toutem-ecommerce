@@ -9,14 +9,14 @@ type Props = {
     category: string;
   };
   activeCategory: string;
-  setActiveCategory: (value: string) => void;
-  isActive: boolean
+  isActive: boolean;
+  onToggle: any;
 };
 
 const CategorieNavCard = ({
   data,
-  setActiveCategory,
-  isActive
+  isActive,
+  onToggle,
 }: Props) => {  
     // let isActive = activeCategory == data.category ? true : false
 
@@ -24,7 +24,7 @@ const CategorieNavCard = ({
     <div className="card-wrap">
       <Card
         isPressable
-        onPress={() => setActiveCategory(data.category)}
+        onPress={onToggle}
         isHoverable
         variant="bordered"
         css={{
