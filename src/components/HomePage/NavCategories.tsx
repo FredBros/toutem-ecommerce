@@ -18,11 +18,7 @@ const handleToggle = (category: string) => {
   if (activeCategory === category) return setActiveCategory("");
   setActiveCategory(category);
 };
-// return (
-//   <div className="container">
-//     <Accordion />
-//   </div>
-// );
+
 
   const [isLoaded, setIsLoaded] = useState(false)
 

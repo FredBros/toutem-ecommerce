@@ -2,6 +2,7 @@ import React, {useRef, useEffect} from "react";
 import { BlobCategoryDetail } from "../";
 import { urlFor } from "../../lib/client";
 import { Button } from "@nextui-org/react";
+// @ts ignore
 import { gsap } from "gsap";
 
 
