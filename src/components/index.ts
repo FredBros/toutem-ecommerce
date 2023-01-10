@@ -11,6 +11,7 @@ export { default as ToggleTheme } from "./ui/ToggleTheme";
 export { default as BrandLogo } from "./ui/BrandLogo";
 export { default as CategoryLogo } from "./ui/CategoryLogo";
 export { default as ProductCard } from "./ui/ProductCard";
+export { default as CarouselProducts } from "./ui/CarouselProducts";
 
 
 export { default as HomePage } from "./view/HomePage";
@@ -25,6 +26,11 @@ export { default as CategoryDetails } from "./HomePage/CategoryDetails";
 export { default as BestSellersSection } from "./HomePage/BestSellersSection";
 export { default as BestSellersCards } from "./HomePage/BestSellersCards";
 export { default as FeaturedSection } from "./HomePage/FeaturedSection";
+export { default as TrendsSection } from "./HomePage/TrendsSection";
+export { default as TrendsCards } from "./HomePage/TrendsCards";
+export { default as BlogPostSection } from "./HomePage/BlogPostSection";
+export { default as CarouselBlogPosts } from "./HomePage/CarouselBlogPosts";
+export { default as BlogPostCard } from "./HomePage/BlogPostCard";
 
 
 export { default as Pack } from "./svg/Pack";
@@ -36,3 +42,4 @@ export { default as Soap } from "./svg/Soap";
 export { default as BlobCategoryDetail } from "./svg/BlobCategoryDetail";
 export { default as LemonFlower } from "./svg/LemonFlower";
 export { default as CartShop } from "./svg/CartShop";
+export { default as FlowerTrends } from "./svg/FlowerTrends";

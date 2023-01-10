@@ -21,5 +21,10 @@ export default {
       title: 'Text',
       type: 'text',
     },
+    {
+      name: 'url',
+      title: 'Post Url',
+      type: 'url',
+    },
   ],
 }

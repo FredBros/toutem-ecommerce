@@ -1,33 +1,40 @@
 import React, { useContext } from "react";
-import { LemonFlower, BestSellersCards } from "../";
+import { FlowerTrends, TrendsCards } from "..";
 import { Button } from "@nextui-org/react";
 import { DataContext } from "../../context/DataContext";
 import { CarouselProducts } from "../";
 
-const BestSellersSection = () => {
-  const { bestSellersData } = useContext(DataContext);
+
+const TrendsSection = () => {
+ 
+  const { trendsData } = useContext(DataContext);
+
   return (
     <>
-      <div className="bestSellersSection-wrap">
+      <div className="trendsSection-wrap">
         <div className="svg-wrap">
-          <LemonFlower />
+          <FlowerTrends />
         </div>
         <div className="header">
-          <div className="title">Bestsellers</div>
+          <div className="title">Trends</div>
           <div className="button">
             <Button>SHOP ALL</Button>
           </div>
         </div>
-        <div className="bestsellers-cards-wrap">
-          <BestSellersCards />
+        <div className="trends-cards-wrap">
+          <TrendsCards data={trendsData}/>
         </div>
         <div className="carousel">
-          <CarouselProducts data={bestSellersData} />
+          <CarouselProducts data={trendsData} />
         </div>
       </div>
+
       <style jsx>{`
-        .bestSellersSection-wrap {
-          width: 100%;
+        .carousel {
+          display: none;
+          width: 60vw;
+        }
+        .trendsSection-wrap {
           position: relative;
           display: flex;
           align-items: center;
@@ -55,42 +62,40 @@ const BestSellersSection = () => {
           font-size: 2.25rem;
           color: var(--nextui-colors-primary);
         }
-        .bestsellers-cards-wrap {
+        .trends-cards-wrap {
           display: block;
-        }
-        .carousel {
-          display: none;
-          width: 60vw;
         }
         @media screen and (min-width: 450px) {
           .svg-wrap {
             height: 610px;
-            left: -5%;
+            left: 0;
           }
-          .bestsellers-cards-wrap {
+          .trends-cards-wrap {
             display: block;
           }
         }
         @media screen and (min-width: 960px) {
-          .bestSellersSection-wrap {
+          .trendsSection-wrap {
             flex-direction: row;
             margin-top: 100px;
             justify-content: space-between;
+            overflow: hidden;
+            padding-bottom: 100px;
           }
           .svg-wrap {
-            top: -15%;
-            height: 610px;
-            left: -5%;
+            top: 0;
+            height: 100%;
+            left: 0;
           }
           .header {
             margin-bottom: 0;
             margin-left: 80px;
           }
-          .bestsellers-cards-wrap {
-            display: none;
-          }
           .carousel {
             display: block;
+          }
+          .trends-cards-wrap {
+            display: none;
           }
         }
       `}</style>
@@ -98,4 +103,4 @@ const BestSellersSection = () => {
   );
 };
 
-export default BestSellersSection;
+export default TrendsSection;

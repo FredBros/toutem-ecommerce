@@ -1,14 +1,14 @@
 import React from 'react'
 import { urlFor } from "../../lib/client";
 import {Product} from "../../@types/data"
-import { Card, Text, Button } from "@nextui-org/react";
-import { CartShop} from "../"
+import { Card} from "@nextui-org/react";
 
 type Props = {
     product: Product
 }
 
-const slicedText= (text: any) =>{
+const slicedText= (text: string | undefined) =>{
+  if(!text) return null
   if (text.length<100) return text
   return text.slice(0, 100) + '...'
 }
@@ -46,6 +46,9 @@ const ProductCard = ({product}:Props) => {
           left: 0,
           zIndex: 1,
           borderRadius: "0 0 0 var(--nextui-radii-xl)",
+          maxHeight: "40%",
+          padding: "5px 5px 10px 5px",
+          alignItems: "flex-start",
         }}
       >
         <div className="card-footer">
@@ -63,6 +66,7 @@ const ProductCard = ({product}:Props) => {
         .card-footer {
         }
         .footer-descr {
+          padding: 5px 10px 0 10px;
         }
         .footer-header {
           display: flex;
@@ -89,6 +93,14 @@ const ProductCard = ({product}:Props) => {
           font-size: 0.7rem;
           line-height: 0.7rem;
           color: #6b7280;
+        }
+        @media screen and (min-width: 960px) {
+          .footer-descr {
+            padding: 0;
+          }
+          .title {
+            line-height: normal;
+          }
         }
       `}</style>
     </Card>

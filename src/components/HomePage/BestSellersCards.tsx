@@ -26,6 +26,7 @@ const BestSellersCards = () => {
           align-items: center;
         }
         .card-wrap {
+          aspect-ratio: 1 / 1;
           width: 80%;
           max-width: 375px;
           max-height: 386px;

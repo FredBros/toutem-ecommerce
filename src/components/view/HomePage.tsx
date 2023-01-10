@@ -1,17 +1,31 @@
-import React from 'react'
+import React, { useEffect , useState} from "react";
 import {
   Banner,
   CategoriesSection,
   BestSellersSection,
   FeaturedSection,
+  TrendsSection,
+  BlogPostSection,
 } from "../"; 
 
 
+
+
+
 const HomePage = () => {
+
+const [isLoaded, setIsLoaded] = useState(false);
+
+useEffect(() => {
+  setIsLoaded(true);
+}, []);
+
+if (!isLoaded) return null;
+
   return (
     <>
       <section>
-        <Banner/>
+        <Banner />
 
         <style jsx>{`
           section {
@@ -20,13 +34,19 @@ const HomePage = () => {
         `}</style>
       </section>
       <section>
-        <CategoriesSection/>
+        <CategoriesSection />
       </section>
       <section>
-<BestSellersSection/>
+        <BestSellersSection />
       </section>
       <section>
-<FeaturedSection/>
+        <FeaturedSection />
+      </section>
+      <section>
+        <TrendsSection />
+      </section>
+      <section>
+        <BlogPostSection />
       </section>
     </>
   );

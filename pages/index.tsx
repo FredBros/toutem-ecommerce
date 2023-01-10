@@ -13,7 +13,9 @@ import {
   Product,
   Products,
   FeaturedData,
+  BlogPostData
 } from "../src/@types/data";
+
 
 
  
@@ -23,6 +25,8 @@ type Props = {
   categoriesSectionData: CategoriesSectionData;
   bestSellersData: Products;
   featuredData: FeaturedData;
+  trendsData: Products;
+  blogPostData : BlogPostData;
 };
 
 export default function Home({
@@ -30,14 +34,25 @@ export default function Home({
   categoriesSectionData,
   bestSellersData,
   featuredData,
+  trendsData,
+  blogPostData,
 }: Props) {
-  const { addBannerData, addCategoriesSectionData, addBestSellersData } =
-    useContext(DataContext);
+  const {
+    addBannerData,
+    addCategoriesSectionData,
+    addBestSellersData,
+    addFeaturedData,
+    addTrendsData,
+    addBlogPostData,
+  } = useContext(DataContext);
 
   useEffect(() => {
     addBannerData(bannerData[0]);
     addCategoriesSectionData(categoriesSectionData);
     addBestSellersData(bestSellersData);
+    addFeaturedData(featuredData);
+    addTrendsData(trendsData);
+    addBlogPostData(blogPostData);
   }, []);
   return (
     <>
@@ -65,7 +80,18 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const bestSellersData: [] = await client.fetch(bestSellersQuery);
   const featuredQuery = '*[_type == "featured" ] | order(_updatedAt desc)[0]'
   const featuredData: {} = await client.fetch(featuredQuery);
+  const trendQuery = '*[_type == "product" && isFeatured== true]';
+  const trendsData: [] = await client.fetch(trendQuery);
+  const blogPostQuery = '*[_type == "blogPost" ]';
+  const blogPostData: [] = await client.fetch(blogPostQuery);
   return {
-    props: { bannerData, categoriesSectionData, bestSellersData, featuredData }, // will be passed to the page component as props
+    props: {
+      bannerData,
+      categoriesSectionData,
+      bestSellersData,
+      featuredData,
+      trendsData,
+      blogPostData
+    }, // will be passed to the page component as props
   };
 };
