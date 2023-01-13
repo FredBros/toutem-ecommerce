@@ -15,6 +15,8 @@ export { default as CarouselProducts } from "./ui/CarouselProducts";
 
 
 export { default as HomePage } from "./view/HomePage";
+export { default as Shop } from "./view/Shop";
+export { default as ProductPage } from "./view/ProductPage";
 
 
 export { default as Banner } from "./HomePage/Banner";
@@ -32,6 +34,11 @@ export { default as BlogPostSection } from "./HomePage/BlogPostSection";
 export { default as CarouselBlogPosts } from "./HomePage/CarouselBlogPosts";
 export { default as BlogPostCard } from "./HomePage/BlogPostCard";
 
+
+export { default as DropDownCategory } from "./shop/DropDownCategory";
+export { default as ProductsSection } from "./shop/ProductsSection";
+export { default as CounterButtons } from "./shop/CounterButtons";
+export { default as ImageProduct } from "./shop/ImageProduct";
 
 export { default as Pack } from "./svg/Pack";
 export { default as Blob } from "./svg/Blob";

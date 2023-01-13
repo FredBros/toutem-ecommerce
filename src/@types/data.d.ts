@@ -10,9 +10,13 @@ export  interface Product {
   image?: {};
   name? : string;
   price? : number;
-  slug? : {};
+  slug : {
+    current: string
+  };
   soldCount? : number;
   summary? : string;
+  isFeatured? : boolean;
+  stock: number
 }
 export type Products = Product[]
 

@@ -30,6 +30,7 @@ export default {
         source: 'name',
         maxLength: 90,
       },
+      validation: (Rule: { required: () => any; }) => Rule.required(),
     },
     {
       name: 'price',
@@ -68,6 +69,11 @@ export default {
       type: 'number',
       initialValue: 0,
       readOnly: true,
+    },
+    {
+      name: 'stock',
+      title: 'Stock',
+      type: 'number',
     },
   ],
 }

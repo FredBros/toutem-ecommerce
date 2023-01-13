@@ -3,6 +3,7 @@ import { FlowerTrends, TrendsCards } from "..";
 import { Button } from "@nextui-org/react";
 import { DataContext } from "../../context/DataContext";
 import { CarouselProducts } from "../";
+import Link from "next/link";
 
 
 const TrendsSection = () => {
@@ -18,11 +19,13 @@ const TrendsSection = () => {
         <div className="header">
           <div className="title">Trends</div>
           <div className="button">
-            <Button>SHOP ALL</Button>
+            <Link href={"/shop"}>
+              <Button>SHOP ALL</Button>
+            </Link>
           </div>
         </div>
         <div className="trends-cards-wrap">
-          <TrendsCards data={trendsData}/>
+          <TrendsCards data={trendsData} />
         </div>
         <div className="carousel">
           <CarouselProducts data={trendsData} />

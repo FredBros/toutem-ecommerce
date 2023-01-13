@@ -69,16 +69,17 @@ export default function Home({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   // const query = '*[_type == "product"]';
   // const products = await client.fetch(query);
   const categoriesQuery = '*[_type == "categoriesSection"]';
   const categoriesSectionData: [] = await client.fetch(categoriesQuery);
   const bannerQuery = '*[_type == "banner"]';
   const bannerData: [] = await client.fetch(bannerQuery);
-  const bestSellersQuery = '*[_type == "product" ] | order(soldCount desc)[0...2]';
+  const bestSellersQuery =
+    '*[_type == "product" ] | order(soldCount desc)[0...2]';
   const bestSellersData: [] = await client.fetch(bestSellersQuery);
-  const featuredQuery = '*[_type == "featured" ] | order(_updatedAt desc)[0]'
+  const featuredQuery = '*[_type == "featured" ] | order(_updatedAt desc)[0]';
   const featuredData: {} = await client.fetch(featuredQuery);
   const trendQuery = '*[_type == "product" && isFeatured== true]';
   const trendsData: [] = await client.fetch(trendQuery);
@@ -91,7 +92,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       bestSellersData,
       featuredData,
       trendsData,
-      blogPostData
+      blogPostData,
     }, // will be passed to the page component as props
   };
 };

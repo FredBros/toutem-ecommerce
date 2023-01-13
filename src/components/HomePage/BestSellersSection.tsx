@@ -3,6 +3,7 @@ import { LemonFlower, BestSellersCards } from "../";
 import { Button } from "@nextui-org/react";
 import { DataContext } from "../../context/DataContext";
 import { CarouselProducts } from "../";
+import Link from "next/link";
 
 const BestSellersSection = () => {
   const { bestSellersData } = useContext(DataContext);
@@ -15,7 +16,9 @@ const BestSellersSection = () => {
         <div className="header">
           <div className="title">Bestsellers</div>
           <div className="button">
-            <Button>SHOP ALL</Button>
+            <Link href={"/shop"}>
+              <Button>SHOP ALL</Button>
+            </Link>
           </div>
         </div>
         <div className="bestsellers-cards-wrap">

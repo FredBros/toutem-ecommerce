@@ -5,26 +5,29 @@ import type { AppProps } from 'next/app'
 import { lightTheme, darkTheme } from "../styles/theme";
 import {Layout} from '../src/components/'
 import { DataProvider } from "../src/context/DataContext";
+import { SSRProvider } from "@react-aria/ssr"; 
 
 
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <NextThemesProvider
-      defaultTheme="system"
-      attribute="class"
-      value={{
-        light: lightTheme.className,
-        dark: darkTheme.className,
-      }}
-    >
-      <NextUIProvider>
-        <DataProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </DataProvider>
-      </NextUIProvider>
-    </NextThemesProvider>
+    <SSRProvider>
+      <NextThemesProvider
+        defaultTheme="system"
+        attribute="class"
+        value={{
+          light: lightTheme.className,
+          dark: darkTheme.className,
+        }}
+      >
+        <NextUIProvider>
+          <DataProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </DataProvider>
+        </NextUIProvider>
+      </NextThemesProvider>
+    </SSRProvider>
   );
 }

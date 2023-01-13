@@ -12,9 +12,7 @@ const BestSellersCards = () => {
       {bestSellersData.map((product) => {
         return (
           <div className="card-wrap" key={uuidv4()}>
-            <Link href="/">
               <ProductCard product={product} />
-            </Link>
           </div>
         );
       })}
