@@ -1,23 +1,17 @@
 import React from "react";
-import { css, Navbar, Link, Text, Dropdown } from "@nextui-org/react";
-import { CartIcon, ToutemLogo, ToggleTheme, BrandLogo } from "../";
+import {  Navbar, Text, Dropdown } from "@nextui-org/react";
+import { CartIcon, ToggleTheme, BrandLogo, NavbarLinks } from "../";
 import { BsChevronDown } from "react-icons/bs";
 import menuItemsCategory from "../../utils/menuItemsCategory";
+import Link from "next/link"
+
 
 
 
 
 
 const MyNavbar = () => {
-  // const menuItems = [
-  //   {name: "all products", slug: ''},
-  //   { name: "natural cosmetics", slug: "cosmetic" },
-  //   { name: "essential oils", slug: "oil" },
-  //   { name: "packs", slug: "pack" },
-  //   { name: "diffusers", slug: "diffuser" },
-  //   { name: "natural soaps", slug: "soap" },
-  // ];
-  
+
   return (
     <>
       <Navbar variant="sticky">
@@ -25,38 +19,7 @@ const MyNavbar = () => {
         <Navbar.Brand>
           <BrandLogo />
         </Navbar.Brand>
-        <Navbar.Content hideIn="xs" css={{ fontSize: "12px" }}>
-          <Navbar.Link href="/">HOME</Navbar.Link>
-          <Navbar.Link href="#">ABOUT US</Navbar.Link>
-          <Dropdown>
-            <Navbar.Item>
-              <Dropdown.Button
-                aria-label="Shop"
-                auto
-                light
-                css={{
-                  px: 0,
-                  dflex: "center",
-                  svg: { pe: "none" },
-                }}
-                iconRight={<BsChevronDown />}
-                ripple={false}
-              >
-                SHOP
-              </Dropdown.Button>
-            </Navbar.Item>
-            <Dropdown.Menu aria-label="Shop">
-              {menuItemsCategory.map((item) => (
-                <Dropdown.Item key={item.slug} aria-label={item.name}>
-                  <Link href={`/shop/${item.slug}`} css={{ color: "inherit" }}>
-                    {item.name.toUpperCase()}
-                  </Link>
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-          <Navbar.Link href="#">CONTACT</Navbar.Link>
-        </Navbar.Content>
+        <NavbarLinks />
         <Navbar.Content>
           <ToggleTheme />
           <Navbar.Link href="#">
@@ -94,7 +57,7 @@ const MyNavbar = () => {
             <Dropdown.Menu aria-label="Shop">
               {menuItemsCategory.map((item) => (
                 <Dropdown.Item key={item.slug} aria-label={item.name}>
-                  <Link href={`/shop/${item.slug}`} css={{ color: "inherit" }}>
+                  <Link href={`/shop/${item.slug}`} style={{ color: "inherit" }}>
                     {item.name.toUpperCase()}
                   </Link>
                 </Dropdown.Item>

@@ -3,6 +3,7 @@ export { default as Header } from "./layout/Header";
 export { default as Footer } from "./layout/Footer";
 export { default as Navbar } from "./layout/Navbar";
 export { default as FooterItem } from "./layout/FooterItem";
+export { default as NavbarLinks } from "./layout/NavbarLinks";
 
 
 export { default as ToutemLogo } from "./ui/ToutemLogo";
