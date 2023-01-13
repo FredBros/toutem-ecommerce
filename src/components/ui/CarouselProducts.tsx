@@ -1,7 +1,6 @@
 import React from 'react'
 import { BlogPostCard, ProductCard } from "../";
 import { v4 as uuidv4 } from "uuid";
-import Link from "next/link";
 import { Products } from "../../@types/data";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -70,9 +69,7 @@ const CarouselProducts = ({ data, isFullScreen }: Props) => {
           {data.map((product) => {
             return (
               <div className="product-card" key={uuidv4()}>
-                <Link href="">
                   <ProductCard product={product} />
-                </Link>
               </div>
             );
           })}

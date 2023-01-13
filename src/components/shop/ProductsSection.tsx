@@ -1,7 +1,6 @@
 import React from 'react'
 import { Products } from "../../../src/@types/data";
-import {ProductCard, CartShop} from "../"
-import Link from 'next/link';
+import {ProductCard} from "../"
 import { Button } from "@nextui-org/react";
 import {MdOutlineAddShoppingCart} from "react-icons/md"
 import {v4 as uuidv4} from "uuid"

@@ -5,18 +5,20 @@ export interface Banner {
 }
 
 export  interface Product {
+  _id:string
   category?: [];
   details?: string;
   image?: {};
-  name? : string;
-  price? : number;
-  slug : {
-    current: string
+  name?: string;
+  price: number;
+  slug: {
+    current: string;
   };
-  soldCount? : number;
-  summary? : string;
-  isFeatured? : boolean;
-  stock: number
+  soldCount?: number;
+  summary?: string;
+  isFeatured?: boolean;
+  stock: number;
+  qtyInCart?: number
 }
 export type Products = Product[]
 
@@ -59,3 +61,25 @@ export type DataContextType = {
   addTrendsData: (data: Products) => void;
   addBlogPostData: ((data: BlogPostData) => void) ;
 };
+
+export type ShopContextType = {
+  showCart: boolean;
+  setShowCart: Dispatch<SetStateAction<boolean>>;
+  cartItems: Products;
+  totalPrice: number;
+  totalQuantities: number;
+  onAdd: (product: Product, quantity: number) => void;
+  toggleCartItemQuantity: (id: string, value: string) => void;
+  onRemove: (id: string) => void;
+  setCartItems: Dispatch<Products<boolean>>;
+  setTotalPrice: Dispatch<SetStateAction<number>>;
+  setTotalQuantities: Dispatch<SetStateAction<number>>;
+};
+
+export type CartProduct = {
+  price?: number;
+  _id : string;
+  quantity : number
+}
+
+export type CartItems = CartProduct[]
