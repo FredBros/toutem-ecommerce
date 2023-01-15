@@ -1,15 +1,33 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Badge } from "@nextui-org/react";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 
-const CartIcon = () => {
+type Props = {
+  totalQuantities: number;
+  setShowCart: (data:boolean) => null,
+};
+
+const CartIcon = ({ totalQuantities, setShowCart }: Props) => {
   return (
     <>
-      <Badge color="error" content={0}>
-        <HiOutlineShoppingBag size={30} />
-      </Badge>
+      <button onClick={() => setShowCart(true)}>
+        <Badge color="error" content={totalQuantities}>
+          <HiOutlineShoppingBag size={30} />
+        </Badge>
+      </button>
+      <style jsx>{`
+        button {
+          background: none;
+          color: inherit;
+          border: none;
+          padding: 0;
+          font: inherit;
+          cursor: pointer;
+          outline: inherit;
+        }
+      `}</style>
     </>
   );
-}
+};
 
 export default CartIcon

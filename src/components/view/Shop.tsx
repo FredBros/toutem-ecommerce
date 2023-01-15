@@ -1,13 +1,5 @@
 import React from 'react'
 import { DropDownCategory, ProductsSection } from "../";
-import {
-  GetStaticPaths,
-  GetStaticProps,
-  NextPage,
-  GetStaticPropsContext,
-  GetServerSideProps,
-} from "next";
-import { client } from "../../lib/client";
 import { Products } from "../../../src/@types/data";
 
 type Props = {

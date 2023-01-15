@@ -21,9 +21,15 @@ const ImageProduct = ({ image }: Props) => {
       }}
     >
       <Card.Body>
-        <Image src={src} alt="Picture product" fill object-fit="cover" sizes="300px"
-    />
+        <Image
+          style={{ objectFit: "contain"}}
+          src={src}
+          alt="Picture product"
+          fill
+          sizes="300px"
+        />
       </Card.Body>
+      
     </Card>
   );
 };

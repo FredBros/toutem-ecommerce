@@ -36,3 +36,13 @@ time, mark, audio, video {
 /* p{
 font-family: 'Quicksand', sans-serif;
 } */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+.nextui-button-text{
+	z-index:0 !important;
+}
+
+.nextui-c-hdxYb{
+	color: var(--nextui-colors-primary) !important;
+}

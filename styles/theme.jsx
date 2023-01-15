@@ -26,6 +26,8 @@ export const lightTheme = createTheme({
       primarySolidHover: "#20B151",
       primarySolidContrast: "$white", // commonly used for text inside the component
       primaryShadow: "#3EC46B",
+      //
+      accents4: "$primary",
     },
   },
 });
@@ -53,6 +55,8 @@ export const darkTheme = createTheme({
       primarySolidHover: "#20B151",
       primarySolidContrast: "$white", // commonly used for text inside the component
       primaryShadow: "#3EC46B",
+      //
+      accents4: "$primary",
     },
   },
 });

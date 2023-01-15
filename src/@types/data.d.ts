@@ -65,6 +65,11 @@ export type DataContextType = {
 export type ShopContextType = {
   showCart: boolean;
   setShowCart: Dispatch<SetStateAction<boolean>>;
+  qty: number;
+  setQty: Dispatch<SetStateAction<number>>;
+  incQty: () => void;
+  decQty: () => void;
+  decQty;
   cartItems: Products;
   totalPrice: number;
   totalQuantities: number;

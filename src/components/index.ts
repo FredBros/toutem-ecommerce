@@ -4,6 +4,10 @@ export { default as Footer } from "./layout/Footer";
 export { default as Navbar } from "./layout/Navbar";
 export { default as FooterItem } from "./layout/FooterItem";
 export { default as NavbarLinks } from "./layout/NavbarLinks";
+export { default as NavbarMobile } from "./layout/NavbarMobile";
+export { default as Cart } from "./layout/Cart";
+export { default as CartProductCard } from "./layout/CartProductCard";
+export { default as RemoveBtn } from "./layout/RemoveBtn";
 
 
 export { default as ToutemLogo } from "./ui/ToutemLogo";
@@ -13,6 +17,7 @@ export { default as BrandLogo } from "./ui/BrandLogo";
 export { default as CategoryLogo } from "./ui/CategoryLogo";
 export { default as ProductCard } from "./ui/ProductCard";
 export { default as CarouselProducts } from "./ui/CarouselProducts";
+export { default as BuyNowButtonCard } from "./ui/BuyNowButtonCard";
 
 
 export { default as HomePage } from "./view/HomePage";

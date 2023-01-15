@@ -1,10 +1,14 @@
-import React, { createContext,  useState } from "react";
+import React, { createContext, useState } from "react";
 import { toast } from "react-hot-toast";
-import { ShopContextType, Product, Products} from "../@types/data";
+import { ShopContextType, Product, Products } from "../@types/data";
 
 export const ShopContext = createContext<ShopContextType>({
   showCart: false,
   setShowCart: () => null,
+  qty: 1,
+  setQty: () => null,
+  incQty: () => null,
+  decQty: () => null,
   cartItems: [],
   totalPrice: 0,
   totalQuantities: 0,
@@ -20,42 +24,58 @@ type Props = {
   children: React.ReactNode;
 };
 
-let foundProduct: Product
-let index:number;
+let foundProduct: Product;
+let index: number;
+let qtyInCart: number;
+let stockIsEmpty: boolean = false;
 
 export const DataShopProvider = ({ children }: Props) => {
   const [showCart, setShowCart] = useState<boolean>(false);
   const [cartItems, setCartItems] = useState<Products>([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantities, setTotalQuantities] = useState(0);
-  //! existe deja dans ProductShop
-  // const [qty, setQty] = useState(1);
+  const [qty, setQty] = useState(1);
 
   const onAdd = (product: Product, quantity: number) => {
-    console.log(product.price, quantity);
     const checkProductInCart = cartItems.find(
       (item) => item._id === product._id
     );
-    setTotalPrice(
-      (prevTotalPrice) => prevTotalPrice + product.price * quantity
-    );
-    setTotalQuantities((prevTotalQuantity) => prevTotalQuantity + quantity);
-    console.log("totalPrice : ", totalPrice);
 
     if (checkProductInCart) {
       const updateCartItems: any = cartItems.map((cartProduct) => {
-        if (cartProduct._id === product._id)
-          return {
-            ...cartProduct,
-            qtyInCart: cartProduct.qtyInCart || 0 + quantity,
-          };
+        if (cartProduct._id === product._id) {
+          qtyInCart = (cartProduct.qtyInCart || 0) + quantity;
+          if (cartProduct.qtyInCart! < cartProduct.stock)
+            return {
+              ...cartProduct,
+              qtyInCart: (cartProduct.qtyInCart || 0) + quantity,
+            };
+          else {
+            stockIsEmpty = true;
+            return {
+              ...cartProduct,
+              qtyInCart: cartProduct.qtyInCart || 0,
+            };
+          }
+        }
       });
       setCartItems(updateCartItems);
     } else {
-      product.qtyInCart = quantity;
-      setCartItems([...cartItems, { ...product }]);
+      if (product.stock) {
+        product.qtyInCart = quantity;
+        setCartItems([...cartItems, { ...product }]);
+        qtyInCart = quantity;
+      }
+      else {stockIsEmpty= true}
     }
-    toast.success(`${quantity} ${product.name} added to the cart.`);
+    if (!stockIsEmpty) {
+      setTotalQuantities((prevTotalQuantity) => prevTotalQuantity + quantity);
+      setTotalPrice(
+        (prevTotalPrice) => prevTotalPrice + product.price * quantity
+      );
+      toast.success(`${quantity} ${product.name} added to the cart.`);
+    }
+    setQty(qtyInCart >= product.stock ? 0 : 1);
   };
 
   const onRemove = (id: string) => {
@@ -94,11 +114,24 @@ export const DataShopProvider = ({ children }: Props) => {
     }
   };
 
+  const incQty = () => {
+    setQty((prev) => prev + 1);
+  };
+
+  const decQty = () => {
+    if (qty === 0) setQty(() => 0);
+    else setQty((prev) => prev - 1);
+  };
+
   return (
     <ShopContext.Provider
       value={{
         showCart,
         setShowCart,
+        qty,
+        setQty,
+        decQty,
+        incQty,
         cartItems,
         totalPrice,
         totalQuantities,

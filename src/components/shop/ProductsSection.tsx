@@ -1,8 +1,6 @@
 import React from 'react'
 import { Products } from "../../../src/@types/data";
 import {ProductCard} from "../"
-import { Button } from "@nextui-org/react";
-import {MdOutlineAddShoppingCart} from "react-icons/md"
 import {v4 as uuidv4} from "uuid"
 
 
@@ -10,26 +8,14 @@ type Props = {
   products: Products;
 };
 
-const addToCart = () =>{
-}
+
 
 const ProductsSection = ({ products }: Props) => {
   return (
     <div className="products-wrap">
       {products.map((product) => (
         <div className="product-card-wrap" key={uuidv4()} >
-          
             <ProductCard product={product} />
-          
-          <div className="cartshop-wrap">
-            <Button
-              auto
-              icon={
-                <MdOutlineAddShoppingCart color="currentColor"  size="2em"/>
-              }
-              onPress={addToCart}
-            ></Button>
-          </div>
         </div>
       ))}
       <style jsx>{`
@@ -45,11 +31,6 @@ const ProductsSection = ({ products }: Props) => {
           position: relative;
           height: 300px;
           max-width: 300px;
-        }
-        .cartshop-wrap {
-          position: absolute;
-          top: 10px;
-          right: 10px;
         }
       `}</style>
     </div>

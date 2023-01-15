@@ -43,11 +43,11 @@ const responsiveFull = {
     items: 4,
   },
   tablet: {
-    breakpoint: { max: 959, min: 450 },
+    breakpoint: { max: 959, min: 551 },
     items: 2,
   },
   mobile: {
-    breakpoint: { max: 450, min: 0 },
+    breakpoint: { max: 550, min: 0 },
     items: 1,
   },
 };
@@ -61,15 +61,16 @@ const CarouselProducts = ({ data, isFullScreen }: Props) => {
     <>
       <div className="carousel">
         <Carousel
+          centerMode={true}
           responsive={responsive}
           showDots={true}
           infinite={true}
-          autoPlay
+          // autoPlay
         >
           {data.map((product) => {
             return (
               <div className="product-card" key={uuidv4()}>
-                  <ProductCard product={product} />
+                <ProductCard product={product} isInCarousel = {true}/>
               </div>
             );
           })}
@@ -83,6 +84,7 @@ const CarouselProducts = ({ data, isFullScreen }: Props) => {
         .product-card {
           padding: 10px 10px;
           height: 100%;
+          max-width: 200px;
         }
       `}</style>
     </>

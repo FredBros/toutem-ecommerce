@@ -1,9 +1,10 @@
-import React,{useState, useContext} from 'react'
+import React, {  useContext, useEffect } from "react";
 import { Product, Products } from "../../../src/@types/data";
-import { Card, Button } from "@nextui-org/react";
-import {CounterButtons, ImageProduct, CarouselProducts} from "../"
-
-
+import {  Button,   } from "@nextui-org/react";
+import { CounterButtons, ImageProduct, CarouselProducts } from "../";
+import { ShopContext } from "../../context/ShopContext";
+import { useRouter } from "next/router";
+import { getQtyInCart } from "../../utils/getQtyInCart";
 type Props = {
   product: Product;
   maylikeProducts: Products;
@@ -11,20 +12,22 @@ type Props = {
 
 
 
+
 const ProductPage = ({ product, maylikeProducts }: Props) => {
+const router = useRouter();
+const { onAdd, setShowCart, qty, setQty, cartItems } = useContext(ShopContext);
 
-  const [qty, setQty] = useState(0);
+useEffect(() => {
+  setQty(getQtyInCart(cartItems, product)! >= product.stock ? 0 : 1);
+}, [router.query]);
 
-  const incQty = () => {
-    if (qty >= product.stock) {
-      setQty(() => product.stock);
-    } else setQty((prev) => prev + 1);
-  };
 
-  const decQty = () => {
-    if (qty === 0) setQty(() => 0);
-    else setQty((prev) => prev - 1);
-  };
+const handleBuyNow = () => {
+  onAdd(product, qty);
+  setShowCart(true);
+};
+
+
 
   return (
     <>
@@ -37,22 +40,37 @@ const ProductPage = ({ product, maylikeProducts }: Props) => {
             <div className="add-shop-wrap">
               <div className="price">{product.price}€</div>
               <p>Quantity</p>
-              <CounterButtons
-                qty={qty}
-                decQty={decQty}
-                incQty={incQty}
-                stock={product.stock}
-              />
+              <div className="counter-btn">
+                <CounterButtons stock={product.stock} cartItemQty={getQtyInCart(cartItems, product)} />
+              </div>
               <div className="btn-buy-wrap">
                 <Button
+                  onPress={() => onAdd(product, qty)}
+                  disabled={qty === 0}
                   bordered
-                  css={{ maxWidth: "12rem", width: "40%", minWidth: "auto" }}
+                  css={{
+                    maxWidth: "12rem",
+                    width: "40%",
+                    minWidth: "auto",
+                    "&:hover": {
+                      transform: "scale(1.1)",
+                    },
+                  }}
                 >
                   Add to cart
                 </Button>
                 <Button
                   shadow
-                  css={{ maxWidth: "12rem", width: "40%", minWidth: "auto" }}
+                  disabled={qty === 0}
+                  onPress={handleBuyNow}
+                  css={{
+                    maxWidth: "12rem",
+                    width: "40%",
+                    minWidth: "auto",
+                    "&:hover": {
+                      transform: "scale(1.1)",
+                    },
+                  }}
                 >
                   Buy now
                 </Button>
@@ -72,6 +90,9 @@ const ProductPage = ({ product, maylikeProducts }: Props) => {
         </div>
       </div>
       <style jsx>{`
+        .nextui-button-text {
+          z-index: 0;
+        }
         .product-wrap {
           display: flex;
           flex-direction: column;
@@ -114,6 +135,10 @@ const ProductPage = ({ product, maylikeProducts }: Props) => {
           align-items: center;
           justify-content: center;
           gap: 20px;
+        }
+        .counter-btn {
+          height: 45px;
+          width: 180px;
         }
         .product-content-wrap {
           padding: 20px;
@@ -172,4 +197,4 @@ const ProductPage = ({ product, maylikeProducts }: Props) => {
   );
 };
 
-export default ProductPage
+export default ProductPage;
