@@ -10,8 +10,7 @@ const NavbarLinks = () => {
     <Navbar.Content hideIn="xs" css={{ fontSize: "12px" }}>
       <Navbar.Item>
         <Link href="/" style={{ color: "inherit" }}>
-          {" "}
-          HOME{" "}
+          HOME
         </Link>
       </Navbar.Item>
       <Navbar.Item>

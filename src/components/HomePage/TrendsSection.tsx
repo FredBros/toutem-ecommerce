@@ -5,9 +5,7 @@ import { DataContext } from "../../context/DataContext";
 import { CarouselProducts } from "../";
 import Link from "next/link";
 
-
 const TrendsSection = () => {
- 
   const { trendsData } = useContext(DataContext);
 
   return (
@@ -19,9 +17,9 @@ const TrendsSection = () => {
         <div className="header">
           <div className="title">Trends</div>
           <div className="button">
-            <Link href={"/shop"}>
-              <Button>SHOP ALL</Button>
-            </Link>
+            <Button>
+              <Link href={"/shop"}>SHOP ALL</Link>
+            </Button>
           </div>
         </div>
         <div className="trends-cards-wrap">

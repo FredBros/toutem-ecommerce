@@ -8,7 +8,6 @@ import {
   NavbarMobile,
   Cart
 } from "../";
-import Link from "next/link"
 import { ShopContext } from "../../context/ShopContext";
 
 

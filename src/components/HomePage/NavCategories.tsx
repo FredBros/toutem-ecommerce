@@ -4,10 +4,7 @@ import { DataContext } from "../../context/DataContext";
 import { v4 as uuidv4 } from "uuid";
 import MediaQuery from "react-responsive";
 
-// type Props = {
-//   activeCategory: string;
-//   setActiveCategory: (value: string) => void;
-// };
+
 
 
 
@@ -38,7 +35,8 @@ const handleToggle = (category: string) => {
               <div className="category-section" key={uuidv4()}>
                 <CategorieNavCard
                   key={uuidv4()}
-                  data={categoryData}
+                  title={categoryData.title}
+                  category={categoryData.category}
                   isActive={activeCategory == categoryData.category}
                   activeCategory={activeCategory}
                   onToggle={() => handleToggle(categoryData.category)}

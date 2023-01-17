@@ -71,7 +71,7 @@ const ProductCard = ({ product, isInCarousel }: Props) => {
       <BuyNowButtonCard product={product} />
       <style jsx>{`
         .card-wrap {
-          position: relative;
+          
           height: 100%;
         }
         .footer-descr {

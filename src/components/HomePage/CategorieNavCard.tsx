@@ -4,21 +4,18 @@ import { CategoryLogo, Blob, Pack, Cosmetic, Diffuser, Oil, Soap } from "../";
 
 
 type Props = {
-  data: {
     title: string;
     category: string;
-  };
-  activeCategory: string;
+   activeCategory: string;
   isActive: boolean;
   onToggle: any;
 };
 
 const CategorieNavCard = ({
-  data,
+  title, category,
   isActive,
   onToggle,
 }: Props) => {  
-    // let isActive = activeCategory == data.category ? true : false
 
   return (
     <div className="card-wrap">
@@ -45,7 +42,7 @@ const CategorieNavCard = ({
           </div>
           <div className="icon-wrap">
             <CategoryLogo
-              category={data.category}
+              category={category}
               color={
                 isActive
                   ? "var(--nextui-colors-categorieNavCardIsActive"
@@ -61,7 +58,7 @@ const CategorieNavCard = ({
               color: isActive ? "#fff" : "var(--nextui-colors-primary)",
             }}
           >
-            {data.title}
+            {title}
           </Text>
         </Card.Footer>
       </Card>

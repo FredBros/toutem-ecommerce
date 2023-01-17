@@ -11,12 +11,15 @@ export default {
       options: {
         hotspot: true,
       },
+      validation: (Rule: {required: () => any}) => Rule.required(),
     },
     {
       name: 'name',
       title: 'Name',
       type: 'string',
+      validation: (Rule: {required: () => any}) => Rule.required(),
     },
+
     {
       name: 'summary',
       title: 'Summary',
@@ -30,12 +33,13 @@ export default {
         source: 'name',
         maxLength: 90,
       },
-      validation: (Rule: { required: () => any; }) => Rule.required(),
+      validation: (Rule: {required: () => any}) => Rule.required(),
     },
     {
       name: 'price',
       title: 'Price',
       type: 'number',
+      validation: (Rule: {required: () => any}) => Rule.required(),
     },
     {
       name: 'details',
@@ -46,6 +50,7 @@ export default {
       name: 'category',
       title: 'Category',
       type: 'array',
+      validation: (Rule: {required: () => any}) => Rule.required(),
       of: [{type: 'string'}],
       options: {
         list: [
@@ -74,6 +79,7 @@ export default {
       name: 'stock',
       title: 'Stock',
       type: 'number',
+      validation: (Rule: {required: () => any}) => Rule.required(),
     },
   ],
 }

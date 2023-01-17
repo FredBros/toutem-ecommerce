@@ -1,14 +1,15 @@
-import { wrap } from 'module'
 import React from 'react'
-import {Header, Footer } from '../'
+import {Header, Footer, Toast } from '../'
+
 
 const Layout = ({children} : {children : React.ReactNode}) => {
   return (
     <div className="layout">
+      <Toast />
       <div>
         <Header />
         <main>{children}</main>
-      </div> 
+      </div>
       <footer>
         <Footer />
       </footer>

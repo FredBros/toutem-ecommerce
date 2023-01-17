@@ -4,19 +4,21 @@ import { urlFor } from "../../lib/client";
 import { Button } from "@nextui-org/react";
 // @ts ignore
 import { gsap } from "gsap";
+import Link from "next/link";
 
 
 type Props = {
   data: {
     category: string;
-    image: {};
-    subTitle: string;
-    text: string;
+    image?: {};
+    subTitle?: string;
+    text?: string;
   };
   isActive: boolean;
 };
 
 const CategoryDetails = ({ data, isActive }: Props) => {
+  
       const tl:any = useRef();
       const ref:any = useRef();
 
@@ -61,7 +63,10 @@ const CategoryDetails = ({ data, isActive }: Props) => {
           <div className="subtitle">{data.subTitle}</div>
           <div className="text">{data.text}</div>
           <div className="button">
-            <Button>EXPLORE THE COLLECTION</Button>
+            <Button>
+              <Link href={`/shop/${data.category}`}>
+                EXPLORE THE COLLECTION</Link>
+            </Button>
           </div>
         </div>
 
@@ -73,7 +78,7 @@ const CategoryDetails = ({ data, isActive }: Props) => {
             overflow: hidden;
             width: 100%;
             transition: max-height 5s linear;
-            height:0;
+            height: 0;
           }
           .images-wrap {
             position: relative;
@@ -136,7 +141,6 @@ const CategoryDetails = ({ data, isActive }: Props) => {
             }
             img {
               height: auto;
-              
             }
           }
           @media screen and (min-width: 961px) {

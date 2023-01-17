@@ -40,8 +40,8 @@ const CartProductCard = ({ cartItem }: Props) => {
           align-items: center;
           justify-content: space-between;
           gap: 10px;
-          padding-top: 15px;
-          border-top: solid 1px var(--nextui-colors-border);
+          padding: 15px 0 10px 0;
+          border-bottom: solid 1px var(--nextui-colors-border);
         }
         .image-wrap {
           height: 100px;

@@ -39,6 +39,9 @@ font-family: 'Quicksand', sans-serif;
 *, *:before, *:after {
   box-sizing: border-box;
 }
+a{
+	color: inherit;
+}
 .nextui-button-text{
 	z-index:0 !important;
 }

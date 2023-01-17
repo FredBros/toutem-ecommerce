@@ -16,9 +16,9 @@ const BestSellersSection = () => {
         <div className="header">
           <div className="title">Bestsellers</div>
           <div className="button">
-            <Link href={"/shop"}>
-              <Button>SHOP ALL</Button>
-            </Link>
+            <Button>
+              <Link href={"/shop"}>SHOP ALL</Link>
+            </Button>
           </div>
         </div>
         <div className="bestsellers-cards-wrap">

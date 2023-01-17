@@ -14,7 +14,7 @@ const FeaturedSection = () => {
       <img src={urlFor(featuredData.image)} />
       <div className="content">
         <div className="text">{featuredData.text}</div>
-        <Link href="">
+        
           <Button
             className="button"
             css={{
@@ -23,10 +23,10 @@ const FeaturedSection = () => {
               fontWeight: "700",
               color: "var(--nextui-colors-foreground)",
             }}
-          >
+          ><Link href={`/${featuredData.buttonLink}`}>
             {featuredData.buttonText}
-          </Button>
         </Link>
+          </Button>
       </div>
 
       <style jsx>{`
@@ -80,8 +80,8 @@ const FeaturedSection = () => {
           img {
             width: 40%;
           }
-          .text { 
-width: 80%;
+          .text {
+            width: 80%;
           }
         }
       `}</style>

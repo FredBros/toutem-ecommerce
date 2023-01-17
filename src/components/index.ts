@@ -8,6 +8,9 @@ export { default as NavbarMobile } from "./layout/NavbarMobile";
 export { default as Cart } from "./layout/Cart";
 export { default as CartProductCard } from "./layout/CartProductCard";
 export { default as RemoveBtn } from "./layout/RemoveBtn";
+export { default as Toast } from "./layout/Toast";
+export { default as StripeButton } from "./layout/StripeButton";
+export { default as AlertStockModal } from "./layout/AlertStockModal";
 
 
 export { default as ToutemLogo } from "./ui/ToutemLogo";

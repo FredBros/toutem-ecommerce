@@ -4,12 +4,20 @@ export interface Banner {
   image?: {};
 }
 
+type Image = {
+  _type: string;
+  asset: {
+    _ref: string;
+    _type: string
+  };
+};
+
 export  interface Product {
-  _id:string
-  category?: [];
+  _id: string;
+  category: [];
   details?: string;
-  image?: {};
-  name?: string;
+  image: Image;
+  name: string;
   price: number;
   slug: {
     current: string;
@@ -18,7 +26,7 @@ export  interface Product {
   summary?: string;
   isFeatured?: boolean;
   stock: number;
-  qtyInCart?: number
+  qtyInCart?: number;
 }
 export type Products = Product[]
 
@@ -26,8 +34,8 @@ export interface CategoriesSection {
   image?: {};
   subTitle?: string;
   text?: string;
-  title?: string;
-  category?: string;
+  title: string;
+  category: string;
 }
 
 export interface FeaturedData {

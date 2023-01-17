@@ -78,12 +78,15 @@ const CarouselProducts = ({ data, isFullScreen }: Props) => {
       </div>
       <style jsx>{`
         .carousel {
+          height: 250px;
+          position: relative;
           max-width: 100vh;
           margin: auto;
         }
         .product-card {
           padding: 10px 10px;
           height: 100%;
+          max-height: 100%;
           max-width: 200px;
         }
       `}</style>

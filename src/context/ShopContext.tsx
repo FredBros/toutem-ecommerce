@@ -70,10 +70,10 @@ export const DataShopProvider = ({ children }: Props) => {
     }
     if (!stockIsEmpty) {
       setTotalQuantities((prevTotalQuantity) => prevTotalQuantity + quantity);
-      setTotalPrice(
-        (prevTotalPrice) => prevTotalPrice + product.price * quantity
+      setTotalPrice((prevTotalPrice) =>
+        Math.round((prevTotalPrice + product.price * quantity)*100)/100
       );
-      toast.success(`${quantity} ${product.name} added to the cart.`);
+      toast.success( <div style={{display: "flex", alignItems: "center", justifyContent: "center", flexDirection : "column"}}><h4> {quantity}{" "}{product.name}</h4> <p> added to the cart.</p> </div>);
     }
     setQty(qtyInCart >= product.stock ? 0 : 1);
   };
@@ -86,7 +86,7 @@ export const DataShopProvider = ({ children }: Props) => {
 
     setTotalPrice(
       (prevTotalPrice) =>
-        prevTotalPrice - foundProduct.price * foundProduct.qtyInCart!
+        Math.round((prevTotalPrice - foundProduct.price * foundProduct.qtyInCart!)*100)/100
     );
     setTotalQuantities(
       (prevTotalQuantities) => prevTotalQuantities - foundProduct.qtyInCart!
@@ -102,13 +102,13 @@ export const DataShopProvider = ({ children }: Props) => {
     if (value === "inc") {
       newCartItems[index].qtyInCart! += 1;
       setCartItems(newCartItems);
-      setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price);
+      setTotalPrice((prevTotalPrice) => Math.round((prevTotalPrice + foundProduct.price)*100)/100);
       setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + 1);
     } else if (value === "dec") {
       if (foundProduct.qtyInCart! > 1) {
         newCartItems[index].qtyInCart! -= 1;
         setCartItems(newCartItems);
-        setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price);
+        setTotalPrice((prevTotalPrice) => Math.round((prevTotalPrice - foundProduct.price)*100)/100);
         setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1);
       }
     }
