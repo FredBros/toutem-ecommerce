@@ -65,7 +65,7 @@ const CarouselProducts = ({ data, isFullScreen }: Props) => {
           responsive={responsive}
           showDots={true}
           infinite={true}
-          // autoPlay
+          autoPlay
         >
           {data.map((product) => {
             return (

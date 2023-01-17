@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, { useContext, useState } from "react";
 import { ShopContext } from "../../context/ShopContext";
 import getStripe from "../../lib/getStripe";
 import { Button } from "@nextui-org/react";
@@ -28,18 +28,13 @@ const StripeButton = ({ cartItemsProps }: Props) => {
 const [checkStockResult, setCheckStockResult] = useState<CheckStockResult>([]);
 
   const [isAlertModalOpen, setIsAlertModalOpen] = useState(false)
-  const { totalPrice, totalQuantities, cartItems, updateCartAfterStockIssues } =
+  const { totalPrice, totalQuantities, updateCartAfterStockIssues } =
     useContext(ShopContext);
-  
-  
-  
-  
-  
+
   const handlerModal = () => setIsAlertModalOpen(true);
   const closeHandlerModal = () => setIsAlertModalOpen(false);
 
-  
-  
+
   const checkStock = async () => {
     const cartItemsPropsSlugs = cartItemsProps.map(
       (cartItem) => `"${cartItem.slug.current}"`
@@ -56,7 +51,6 @@ const [checkStockResult, setCheckStockResult] = useState<CheckStockResult>([]);
         stock: stockItem.stock!,
         qtyInCart: cartItem.qtyInCart!,
         name: stockItem.name!,
-        
         alertStock: cartItem.qtyInCart! > stockItem.stock,
       };
     });

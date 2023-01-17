@@ -26,6 +26,7 @@ export { default as BuyNowButtonCard } from "./ui/BuyNowButtonCard";
 export { default as HomePage } from "./view/HomePage";
 export { default as Shop } from "./view/Shop";
 export { default as ProductPage } from "./view/ProductPage";
+export { default as SuccessPage } from "./view/SuccessPage";
 
 
 export { default as Banner } from "./HomePage/Banner";

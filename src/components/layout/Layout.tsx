@@ -19,6 +19,10 @@ const Layout = ({children} : {children : React.ReactNode}) => {
           display: grid;
           grid-template-rows: 1fr auto;
         }
+        main{
+          max-width : 1400px;
+          margin: 0 auto;
+        }
         footer {
           grid-row-start: 2;
           grid-row-end: 3;

@@ -11,29 +11,29 @@ type Props = {
 
 
 const BuyNowButtonCard = ({product}: Props) => {
-    const { onAdd, setShowCart, cartItems } = useContext(ShopContext);
+    const { onAdd, setShowCart } = useContext(ShopContext);
 
     const handleBuyNow = () => {
       onAdd(product, 1);
       setShowCart(true);
     };
   return (
-    <div className="cartshop-wrap">
+    <div className="button-wrap">
       <Button
-        disabled={product.stock < 1 }
+        disabled={product.stock < 1}
         auto
         icon={<MdOutlineAddShoppingCart color="currentColor" size="2em" />}
         onPress={handleBuyNow}
       ></Button>
 
       <style jsx>{`
-        .cartshop-wrap {
+        .button-wrap {
           position: absolute;
           top: 10px;
           right: 10px;
           transition: transform 0.3s;
         }
-        .cartshop-wrap:hover {
+        .button-wrap:hover {
           transform: scale(1.1);
         }
       `}</style>

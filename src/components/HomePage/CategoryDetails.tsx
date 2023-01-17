@@ -30,6 +30,7 @@ const CategoryDetails = ({ data, isActive }: Props) => {
           tl.current.to(ref.current, {
             height: "auto",
             duration: 0.5,
+            overflow:  "visible",
             ease: "power2.inOut",
           });
           
@@ -65,7 +66,8 @@ const CategoryDetails = ({ data, isActive }: Props) => {
           <div className="button">
             <Button>
               <Link href={`/shop/${data.category}`}>
-                EXPLORE THE COLLECTION</Link>
+                EXPLORE THE COLLECTION
+              </Link>
             </Button>
           </div>
         </div>
@@ -137,6 +139,7 @@ const CategoryDetails = ({ data, isActive }: Props) => {
             .blob-wrap {
               position: relative;
               width: 40vw;
+              max-width: 500px;
               left: -20%;
             }
             img {

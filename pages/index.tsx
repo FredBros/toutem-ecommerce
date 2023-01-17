@@ -77,7 +77,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const bannerQuery = '*[_type == "banner"]';
   const bannerData: [] = await client.fetch(bannerQuery);
   const bestSellersQuery =
-    '*[_type == "product" ] | order(soldCount desc)[0...2]';
+    '*[_type == "product" ] | order(soldCount desc)[0...8]';
   const bestSellersData: [] = await client.fetch(bestSellersQuery);
   const featuredQuery = '*[_type == "featured" ] | order(_updatedAt desc)[0]';
   const featuredData: {} = await client.fetch(featuredQuery);

@@ -19,7 +19,7 @@ const MyNavbar = () => {
 const { totalQuantities, setShowCart } = useContext(ShopContext);
   return (
     <>
-      <Navbar variant="sticky">
+      <Navbar variant="sticky" css={{maxWidth: "none"}}>
         <Navbar.Toggle showIn="xs" />
         <Navbar.Brand>
           <BrandLogo />

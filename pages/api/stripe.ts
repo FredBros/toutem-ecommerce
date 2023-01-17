@@ -25,10 +25,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         line_items: req.body.map((item: Product) => {
           //   const img = item.image[0].asset._ref || item.image.asset._ref;
           const img = item.image.asset._ref;
-          console.log(img);
           const imgSplitted = img.split("-");
           const imgExt = imgSplitted[imgSplitted.length - 1];
-          console.log(imgExt);
           const newImage = img
             .replace(
               "image-",

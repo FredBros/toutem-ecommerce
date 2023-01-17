@@ -42,10 +42,17 @@ font-family: 'Quicksand', sans-serif;
 a{
 	color: inherit;
 }
+
+
 .nextui-button-text{
 	z-index:0 !important;
 }
 
 .nextui-c-hdxYb{
 	color: var(--nextui-colors-primary) !important;
+}
+
+ /* navbar */
+.nextui-c-egxOLa{
+	max-width: none;
 }

@@ -12,7 +12,6 @@ const { setShowCart, showCart, totalQuantities, cartItems, totalPrice } =
       setShowCart(false);
     };
 
-console.log(cartItems);
   return (
     <Modal
       closeButton
