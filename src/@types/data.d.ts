@@ -87,6 +87,7 @@ export type ShopContextType = {
   setCartItems: Dispatch<Products<boolean>>;
   setTotalPrice: Dispatch<SetStateAction<number>>;
   setTotalQuantities: Dispatch<SetStateAction<number>>;
+  updateCartAfterStockIssues: (newCart:Products)=>void;
 };
 
 export type CartProduct = {
@@ -96,3 +97,13 @@ export type CartProduct = {
 }
 
 export type CartItems = CartProduct[]
+
+
+export type CheckStockResultItem = {
+  slug?: string;
+  stock?: number;
+  qtyInCart?: number;
+  alertStock?: boolean;
+  name?: string
+};
+export type CheckStockResult = CheckStockResultItem[];

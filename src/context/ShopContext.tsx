@@ -18,6 +18,7 @@ export const ShopContext = createContext<ShopContextType>({
   setCartItems: () => null,
   setTotalPrice: () => null,
   setTotalQuantities: () => null,
+  updateCartAfterStockIssues: () => null,
 });
 
 type Props = {
@@ -35,6 +36,19 @@ export const DataShopProvider = ({ children }: Props) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
+
+const updateCartAfterStockIssues = (newCart:Products)=> {
+  setCartItems(() => newCart);
+  let totalP = 0
+  let totalQ = 0
+  newCart.map((newCartItem)=> {
+totalP = totalP + (newCartItem.price * newCartItem.qtyInCart! )
+totalQ = totalQ + newCartItem.qtyInCart!
+  })
+  setTotalPrice(() => totalP);
+  setTotalQuantities(()=>totalQ);
+}
+
 
   const onAdd = (product: Product, quantity: number) => {
     const checkProductInCart = cartItems.find(
@@ -73,7 +87,11 @@ export const DataShopProvider = ({ children }: Props) => {
       setTotalPrice((prevTotalPrice) =>
         Math.round((prevTotalPrice + product.price * quantity)*100)/100
       );
-      toast.success( <div style={{display: "flex", alignItems: "center", justifyContent: "center", flexDirection : "column"}}><h4> {quantity}{" "}{product.name}</h4> <p> added to the cart.</p> </div>);
+      toast.success( 
+      <div style={{display: "flex", alignItems: "center", justifyContent: "center", flexDirection : "column"}}>
+        <h4> {quantity}{" "}{product.name}</h4>
+        <p> added to the cart.</p>
+        </div>);
     }
     setQty(qtyInCart >= product.stock ? 0 : 1);
   };
@@ -141,6 +159,7 @@ export const DataShopProvider = ({ children }: Props) => {
         setCartItems,
         setTotalPrice,
         setTotalQuantities,
+        updateCartAfterStockIssues,
       }}
     >
       {children}

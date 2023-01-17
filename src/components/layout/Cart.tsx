@@ -12,7 +12,7 @@ const { setShowCart, showCart, totalQuantities, cartItems, totalPrice } =
       setShowCart(false);
     };
 
-
+console.log(cartItems);
   return (
     <Modal
       closeButton
@@ -54,7 +54,7 @@ const { setShowCart, showCart, totalQuantities, cartItems, totalPrice } =
           <div className="footer-modal">
             <div className="total">Total : {totalPrice}€</div>
             <div className="payBtn">
-              <StripeButton cartItems={cartItems} />
+              <StripeButton cartItemsProps={cartItems} />
             </div>
           </div>
         </Modal.Body>
