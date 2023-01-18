@@ -1,9 +1,7 @@
-import { Button, Card } from '@nextui-org/react'
+import { Button,  } from '@nextui-org/react'
 import Link from 'next/link';
-import React, {useContext, useEffect, useState} from 'react'
-import { toast } from 'react-hot-toast';
+import React, { useEffect, useState} from 'react'
 import { Products } from '../../@types/data';
-import { ShopContext } from "../../context/ShopContext";
 import { client } from '../../lib/client';
 
 
@@ -18,7 +16,6 @@ async function updateStocks(cartItems: Products) { await Promise.all(cartItems.m
 
 
 const SuccessPage = () => {
-  const {  emptyCartItems, setShowCart } = useContext(ShopContext);
   const [isLoaded, setIsLoaded] = useState(false)
   
 
@@ -27,30 +24,14 @@ const SuccessPage = () => {
       ? JSON.parse(localStorage.getItem("cartItems") || "")
       : null;
       console.log(cartItems);
-    // setShowCart(() => false);
     localStorage.clear();
     updateStocks(cartItems)
-    // emptyCartItems();
     setIsLoaded(true);
    },[])
 
    if(!isLoaded) return null
 
 
-  // toast.success(
-  //   <div
-  //     style={{
-  //       display: "flex",
-  //       alignItems: "center",
-  //       justifyContent: "center",
-  //       flexDirection: "column",
-  //     }}
-  //   >
-  //     <h4>
-  //       thank you for your purchase.
-  //     </h4>
-  //   </div>
-  // );
 
   return (
     <div className="wrap">

@@ -88,7 +88,6 @@ export type ShopContextType = {
   setTotalPrice: Dispatch<SetStateAction<number>>;
   setTotalQuantities: Dispatch<SetStateAction<number>>;
   updateCartAfterStockIssues: (newCart: Products) => void;
-  emptyCartItems: () => void
 };
 
 export type CartProduct = {

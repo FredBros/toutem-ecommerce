@@ -5,7 +5,7 @@ import { ShopContext } from '../src/context/ShopContext';
 
 
 
-const canceled = () => {
+const Canceled = () => {
 
     const { setCartItems, setTotalPrice, setTotalQuantities }= useContext(ShopContext)
 
@@ -38,4 +38,4 @@ const canceled = () => {
   );
 }
 
-export default canceled
+export default Canceled
