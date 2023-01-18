@@ -95,6 +95,8 @@ const Banner = () => {
           .title {
             font-size: var(--nextui-fontSizes-8xl);
           }
+           .text {
+          font-size: 1rem;
         }
         @media screen and (min-width: 1400px) {
           .banner-wrap {

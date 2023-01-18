@@ -150,6 +150,8 @@ const CategoryDetails = ({ data, isActive }: Props) => {
             .subtitle {
               font-size: 3.12rem;
             }
+             .text {
+          font-size: 1rem;
           }
         `}</style>
       </div>
