@@ -17,6 +17,35 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       const params = {
         submit_type: "pay",
         payment_method_types: ["card"],
+        shipping_address_collection: {
+          allowed_countries: [
+            "AT",
+            "BE",
+            "CY",
+            "EE",
+            "FI",
+            "FR",
+            "DE",
+            "GR",
+            "IE",
+            "IT",
+            "LV",
+            "LT",
+            "LU",
+            "MT",
+            "NL",
+            "PT",
+            "ES",
+            "SI",
+            "SK",
+            "XK",
+            "ME",
+            "AD",
+            "MC",
+            "SM",
+            "VA",
+          ],
+        },
         billing_address_collection: "auto",
         shipping_options: [
           { shipping_rate: "shr_1MFv44FqKJa1g0WTek6dB74t" },
@@ -60,6 +89,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       const session = await stripe.checkout.sessions.create(params);
       // @ts-ignore
       res.status(200).json(session);
+      
     } catch (err: any) {
       res.status(err.statusCode || 500).json(err.message);
     }
