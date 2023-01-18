@@ -70,8 +70,7 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const query = '*[_type == "product"]';
-  // const products = await client.fetch(query);
+  
   const categoriesQuery = '*[_type == "categoriesSection"]';
   const categoriesSectionData: [] = await client.fetch(categoriesQuery);
   const bannerQuery = '*[_type == "banner"]';

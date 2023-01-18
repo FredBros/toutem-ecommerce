@@ -89,7 +89,7 @@ const [checkStockResult, setCheckStockResult] = useState<CheckStockResult>([]);
    // else stripe checkout
    else {
      //save cart in local storage in order to recover it after a canceled operation during strip checkout
-     localStorage.setItem("cartItemsProps", JSON.stringify(cartItemsProps));
+     localStorage.setItem("cartItems", JSON.stringify(cartItemsProps));
      localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
      localStorage.setItem("totalQuantities", JSON.stringify(totalQuantities));
 

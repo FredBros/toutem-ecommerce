@@ -3,6 +3,7 @@ import { Modal, Button, Text} from "@nextui-org/react";
 import { ShopContext } from "../../context/ShopContext";
 import { CartProductCard, StripeButton } from "../";
 import {v4 as uuidv4} from "uuid"
+import Link from 'next/link';
 
 
 const Cart = () => {

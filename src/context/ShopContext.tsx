@@ -19,6 +19,7 @@ export const ShopContext = createContext<ShopContextType>({
   setTotalPrice: () => null,
   setTotalQuantities: () => null,
   updateCartAfterStockIssues: () => null,
+  emptyCartItems: () => null,
 });
 
 type Props = {
@@ -49,6 +50,11 @@ totalQ = totalQ + newCartItem.qtyInCart!
   setTotalQuantities(()=>totalQ);
 }
 
+const emptyCartItems = ()=> {
+  setCartItems(() =>[])
+  setTotalPrice(() => 0);
+  setTotalQuantities(() => 0);
+}
 
   const onAdd = (product: Product, quantity: number) => {
     const checkProductInCart = cartItems.find(
@@ -160,6 +166,7 @@ totalQ = totalQ + newCartItem.qtyInCart!
         setTotalPrice,
         setTotalQuantities,
         updateCartAfterStockIssues,
+        emptyCartItems,
       }}
     >
       {children}
