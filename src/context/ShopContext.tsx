@@ -72,7 +72,7 @@ totalQ = totalQ + newCartItem.qtyInCart!
               qtyInCart: cartProduct.qtyInCart || 0,
             };
           }
-        }
+        } else return cartProduct;
       });
       setCartItems(updateCartItems);
     } else {
