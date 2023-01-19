@@ -12,7 +12,6 @@ const { setShowCart, showCart, totalQuantities, cartItems, totalPrice } =
     const closeHandler = () => {
       setShowCart(false);
     };
-console.log("cartItems", cartItems);
   return (
     <Modal
       closeButton
